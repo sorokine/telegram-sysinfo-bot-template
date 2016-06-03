@@ -1,0 +1,25 @@
+{
+  "name": "telegram-sysinfo-bot-template",
+  "version": "1.0.0",
+  "description": "A template for telegram bot that reports system information for the computer that it is running on.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/sorokine/telegram-sysinfo-bot-template.git"
+  },
+  "keywords": [
+    "system",
+    "information",
+    "telegram",
+    "bot"
+  ],
+  "author": "Alex Sorokine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/sorokine/telegram-sysinfo-bot-template/issues"
+  },
+  "homepage": "https://gitlab.com/sorokine/telegram-sysinfo-bot-template#README"
+}
