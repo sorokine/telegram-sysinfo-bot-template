@@ -5,18 +5,40 @@ var moment = require('moment');
 
 class SysInfoBot {
   constructor (config) {
+    this.commands = {
+      'system' : 'system',
+      'OS' : 'osInfo',
+      'CPU' : 'cpu',
+      'CPU_GHZ' : 'cpuCurrentspeed',
+      'CPU_t' : 'cpuTemperature',
+      'CPU_load' : 'currentLoad',
+      'memory' : 'mem',
+      'df' : 'fsSize',
+      'io' : 'fsStats',
+      'net' : 'networkInterfaces',
+      'users' : 'users'
+    };
     this.conf = config;
     this.si = require('systeminformation');
   } // constructor
 
-  time(cb) {
-    var t = this.si.time();
-    cb("Current: " + moment(t.current).format() +
-      " up: " + moment.duration(t.uptime, 'seconds').toString());
+  command(command, cb) {
+    if (command in this.commands)
+      this.si[this.commands[command]]( data => cb(JSON.stringify(data)) );
+    else /* special commands */
+      switch (command) {
+        case 'time':
+          var t = this.si.time();
+          cb("Current: " + moment(t.current).format() +
+            " up: " + moment.duration(t.uptime, 'seconds').toString());
+          break;
+        default:
+          cb("unknown command");
+      }
   }
 
-  system(cb) {
-    this.si.system( data => cb(JSON.stringify(data)) );
+  mkmenu() {
+    return object.keys(his.commands); // as Telegram menu
   }
 }
 
