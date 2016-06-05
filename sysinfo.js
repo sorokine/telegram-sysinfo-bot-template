@@ -4,7 +4,7 @@
 var moment = require('moment');
 
 class SysInfoBot {
-  constructor (config) {
+  constructor () {
     this.commands = {
       'system' : 'system',
       'OS' : 'osInfo',
@@ -16,10 +16,9 @@ class SysInfoBot {
       'io' : 'fsStats',
       'net' : 'networkInterfaces',
       'users' : 'users',
-      'static' : 'getStaticData',
       'dynamic' : 'getDynamicData'
     };
-    this.conf = config;
+    this.special_commands = [ 'time' ];
     this.si = require('systeminformation');
   } // constructor
 
@@ -39,8 +38,14 @@ class SysInfoBot {
   }
 
   command_list() {
-    return Object.keys(this.commands).map( s => '/'+s ); // as Telegram menu
+    var list = Object.keys(this.commands);
+    list.unshift(this.special_commands);
+    return list.map( s => '/'+s ); // as Telegram menu
+  }
+
+  help() {
+    return "System information commands: " + this.command_list().join(', ');
   }
 }
 
-module.exports = SysInfoBot;
+module.exports.SysInfoBot = new SysInfoBot();

@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/sorokine/telegram-sysinfo-bot-template.git"
+    "url": "https://github.com/sorokine/telegram-sysinfo-bot-template.git"
   },
   "keywords": [
     "sysinfo",
@@ -17,9 +17,10 @@
   "author": "Alex Sorokine",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/sorokine/telegram-sysinfo-bot-template/issues"
+    "url": "https://github.com/sorokine/telegram-sysinfo-bot-template/issues"
   },
-  "homepage": "https://gitlab.com/sorokine/telegram-sysinfo-bot-template#README.md",
+  "engines" : { "node" : ">=6.2.0" },
+  "homepage": "https://github.com/sorokine/telegram-sysinfo-bot-template",
   "dependencies": {
     "moment": "^2.13.0",
     "systeminformation": "^2.0.5",

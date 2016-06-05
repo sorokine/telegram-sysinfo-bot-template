@@ -12,14 +12,7 @@ var api = new telegram({
 });
 
 /* initialize sysinfo */
-var si_module = require('./sysinfo');
-var sysinfo = new si_module();
-
-/*
-info sections: all static, all dynamic, by section
-
-later: schedule reports at intervals
-*/
+var sysinfo = require('./sysinfo').SysInfoBot;
 
 var chat_id;
 var response = {};
@@ -92,7 +85,7 @@ api.on('message', function(message)
 Here is what I can:
 
 /start - initiate session
-`);
+` + sysinfo.help());
 	} else {
 	  sysinfo.command( match[1], respond );
   }
