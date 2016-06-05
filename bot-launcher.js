@@ -25,12 +25,28 @@ var chat_id;
 var response = {};
 var re_command = /^\/(\w+)/;
 
-var respond = function(text) {
+var respond = function(text, commands) {
   response.text = text;
+
+  /* making a keyboard*/
+  if (commands) {
+    /* rearrange commands in several rows */
+    const row_size = 4;
+    var menu_array = [];
+    while (commands.length > 0)
+      menu_array.push(commands.splice(0, row_size));
+
+    response.reply_markup = JSON.stringify({
+   		keyboard : menu_array
+    });
+  }
+
+  //console.log(response);
+
   api.sendMessage(response)
   .then(function(message)
   {
-    console.log(message);
+    console.log(`Response: ${message.text}`);
   })
   .catch(function(err)
   {
@@ -42,12 +58,12 @@ api.on('message', function(message)
 {
 	response.chat_id = message.chat.id;
 
-  console.log(message);
-
   if (!message.text) {
 		console.log("Not a text message: " + message);
     return;
 	}
+
+  console.log(`Command: ${message.text}`);
 
   var match = re_command.exec(message.text);
   if (!match) {
@@ -59,13 +75,9 @@ api.on('message', function(message)
   if (match[1] == 'start') {
     if ( message.from.username == config.username) {
       chat_id = message.chat.id; // this should happen only on /start
-      respond(`Hello ${message.from.first_name} ${message.from.last_name}!`);
-      /* send menu */
-      // response.reply_markup = JSON.stringify({
-  		// 			keyboard : [ ['1', '2', '3'] ]
-  		// });
+      respond(`Hello ${message.from.first_name} ${message.from.last_name}!`, sysinfo.command_list());
     } else {
-      respond("Username not recognized, set correct username (${message.from.username}) in config.json and restart the bot");
+      respond(`Username not recognized, set correct username (${message.from.username}) in config.json and restart the bot`);
     }
     return;
 	}

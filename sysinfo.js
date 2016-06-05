@@ -9,14 +9,15 @@ class SysInfoBot {
       'system' : 'system',
       'OS' : 'osInfo',
       'CPU' : 'cpu',
-      'CPU_GHZ' : 'cpuCurrentspeed',
       'CPU_t' : 'cpuTemperature',
       'CPU_load' : 'currentLoad',
       'memory' : 'mem',
       'df' : 'fsSize',
       'io' : 'fsStats',
       'net' : 'networkInterfaces',
-      'users' : 'users'
+      'users' : 'users',
+      'static' : 'getStaticData',
+      'dynamic' : 'getDynamicData'
     };
     this.conf = config;
     this.si = require('systeminformation');
@@ -37,8 +38,8 @@ class SysInfoBot {
       }
   }
 
-  mkmenu() {
-    return object.keys(his.commands); // as Telegram menu
+  command_list() {
+    return Object.keys(this.commands).map( s => '/'+s ); // as Telegram menu
   }
 }
 
