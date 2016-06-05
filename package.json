@@ -21,6 +21,7 @@
   },
   "homepage": "https://gitlab.com/sorokine/telegram-sysinfo-bot-template#README.md",
   "dependencies": {
+    "moment": "^2.13.0",
     "systeminformation": "^2.0.5",
     "telegram-bot-api": "^1.1.0"
   }
