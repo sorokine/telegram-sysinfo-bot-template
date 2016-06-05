@@ -29,6 +29,6 @@ Currently system information is collected using https://github.com/sebhildebrand
 
 ## TODO
 
-* [] better formatting for the results
-* [] scheduled reports
-* [] alarms like overheating or disk full
+* [ ] better formatting for the results
+* [ ] scheduled reports
+* [ ] alarms like overheating or disk full
