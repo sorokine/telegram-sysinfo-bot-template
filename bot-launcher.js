@@ -16,10 +16,11 @@ var sysinfo = require('./sysinfo').SysInfoBot;
 
 var chat_id;
 var response = {};
+var cnt = 0;
 var re_command = /^\/(\w+)/;
 
 var respond = function(text, commands) {
-  response.text = text;
+  response.text = cnt++ + ": " + text;
 
   /* making a keyboard*/
   if (commands) {
