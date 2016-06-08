@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-A node.js template for a minimal telegram bot that reports system information for the computer that the bot running on.
+A template for a minimal telegram bot that reports system information for the computer that the bot running on.
 
 ## Use Cases
 
