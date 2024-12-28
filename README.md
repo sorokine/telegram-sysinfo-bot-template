@@ -1,3 +1,5 @@
+This project is no longer maintained
+
 # Telegram Bot Template for Reporting System Information
 
 ## Synopsis
