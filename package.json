@@ -23,7 +23,7 @@
   "homepage": "https://github.com/sorokine/telegram-sysinfo-bot-template",
   "dependencies": {
     "moment": "^2.13.0",
-    "systeminformation": "^2.0.5",
+    "systeminformation": ">=5.23.7",
     "telegram-bot-api": "^1.1.0"
   }
 }
